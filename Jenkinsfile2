@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        TELEGRAM_TOKEN = credentials('telegram-token')
-        WEBEX_ACCESS_TOKEN = credentials('webex-access-token')
-        OPENWEATHERMAP_API_KEY = credentials('openweathermap-api-key')
+        TELEGRAM_TOKEN = '6611113927:AAHxW5DPtPnv2LiBjsdxtmh_gZ0Be7bsXsc'
+        WEBEX_ACCESS_TOKEN = 'NmZlZGJkMDktZGE0Ny00OWQxLWI4YmEtMGQxMjZiMmM2ZDE2NmQwMzMxMTktMTk3_PE93_64bb227d-594d-4030-a56f-373e324be165'
+        OPENWEATHERMAP_API_KEY = '3fdb2d7a03757ca1b310cd4a245c9355'
     }
 
     stages {
