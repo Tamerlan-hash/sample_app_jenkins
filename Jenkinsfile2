@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Шаги для получения кода из репозитория
+                // Steps for checking out the code from the repository
                 checkout scm
             }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Шаги для установки зависимостей из requirements.txt
+                    // Steps for installing dependencies from requirements.txt
                     sh 'pip install -r requirements.txt'
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Шаги для выполнения тестов
+                    // Steps for running tests
                     sh 'pytest'
                 }
             }
@@ -36,23 +36,11 @@ pipeline {
         stage('Create Meeting') {
             steps {
                 script {
-                    // Шаги для создания веб-конференции
-                    def meetingLink = sh(script: '''
-                        python - <<EOF
-                        from datetime import datetime, timedelta
-                        import requests
+                    // Steps for creating a web conference
+                    // ...
 
-                        TELEGRAM_TOKEN = "${env.TELEGRAM_TOKEN}"
-                        WEBEX_ACCESS_TOKEN = "${env.WEBEX_ACCESS_TOKEN}"
-                        OPENWEATHERMAP_API_KEY = "${env.OPENWEATHERMAP_API_KEY}"
-
-                        # Остальной код для создания веб-конференции
-                        # ...
-
-                        EOF
-                    ''', returnStdout: true).trim()
-
-                    // Шаги для использования meetingLink
+                    // Example: printing the meeting link
+                    echo "Meeting Link: ${meetingLink}"
                 }
             }
         }
@@ -60,7 +48,7 @@ pipeline {
         stage('Notify Users') {
             steps {
                 script {
-                    // Шаги для отправки уведомлений в Telegram
+                    // Steps for sending notifications to Telegram
                     // ...
                 }
             }
@@ -70,7 +58,7 @@ pipeline {
     post {
         failure {
             script {
-                // Действия при неудачной сборке
+                // Steps to execute in case of a build failure
                 // ...
             }
         }
